@@ -1,0 +1,30 @@
+<!-- -->
+<ion-content padding class="animated fadeIn login auth-page" style=" background: url('../../assets/imgs/bg.jpg') no-repeat !important;
+background-size: cover !important;">
+  <!-- Logo -->
+  <div padding-horizontal text-center class="animated fadeInDown">
+    <div class="login-content">
+      <div class="logo"></div>
+      <h2 style="color: #9f7c5e;" ion-text class="text-primary">
+        <strong>Start</strong> With Us
+      </h2>
+    </div>
+
+    <!-- Login form -->
+    <form class="list-form">
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="code-working-outline" item-start class="text-primary"></ion-icon>
+        Code
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="data" name="data" [ngModelOptions]="{require: true}"></ion-input>
+      </ion-item>
+    </form>
+    <div>
+      <button ion-button icon-start block outline class="loginbtn" color="dark" (click)="close(data)" tappable>
+        <ion-icon name="log-in"></ion-icon>
+        Done
+      </button>
+    </div>
+  </div>
+</ion-content>

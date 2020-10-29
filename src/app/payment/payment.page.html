@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar style="--background : #38393d ">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: #f2c21e;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: #f2c21e;text-align: center;font-size: 18px;">{{'Upload_Payment' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background :#38393d; ">
+  <div>
+    <img *ngIf="dataSrv.payment == null" (click)="dataSrv.presentActionSheet(100)" src="assets/img/voucher.jpg" style="max-width: 65%; width:50%;
+    border: 0;
+    border-radius: 50%;
+    margin-left: 26%;
+    margin-right:26%;
+    height: 150px;
+    width: 150px;
+    margin-top:10%;" />
+    <img *ngIf="dataSrv.payment != null" (click)="dataSrv.presentActionSheet(100)" src="{{dataSrv.payment}}" style="max-width: 65%; width:50%;
+        border: 0;
+        height: 150px;
+    width: 150px;
+        border-radius: 50%;
+        margin-left: 26%;
+        margin-right:26%;
+        margin-top:10%;" />
+    <br>
+    <p style="color:white; text-align:center; width:100%;">
+      {{'You_Can_Upload' | translate}}</p>
+    <br>
+    <div style="padding-left:4%; padding-right:4%; padding-top:2%; width: 71%;
+      margin: auto; border:none;">
+      <input (click)="uploadPayment()" class='btn bg-yellow color-white big-font m-top-butn-10' type='button'
+        value=" {{'Upload' | translate}}" />
+    </div>
+  </div>
+</ion-content>

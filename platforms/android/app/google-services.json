@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "115123009132",
+    "firebase_url": "https://pickmeupstudent.firebaseio.com",
+    "project_id": "pickmeupstudent",
+    "storage_bucket": "pickmeupstudent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115123009132:android:bc2c7cc345d8e2b8560a49",
+        "android_client_info": {
+          "package_name": "student.pickmeup.io"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115123009132-d5jf6pd573lnlo5o8mjmjd4pscskp3el.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQaCPXExONRR0MkG4sWD199UgiySRBrjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115123009132-d5jf6pd573lnlo5o8mjmjd4pscskp3el.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

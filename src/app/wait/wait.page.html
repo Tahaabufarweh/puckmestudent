@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar style="--background : #38393d ">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: #f2c21e;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: #f2c21e;text-align: center;font-size: 18px;">{{'Holding' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background :#38393d; ">
+  <div>
+    <img src="assets/img/logo.png" style="max-width: 65%; width:50%;
+    border: 0;
+    margin-left: 26%;
+    margin-right:26%;
+    margin-top:10%;" />
+    <br>
+    <p style="color:white; text-align:center; width:100%;">{{'HoldingAcc' | translate}}</p>
+    <br>
+    <div style="padding-left:4%; padding-right:4%; padding-top:2%; width: 71%;
+      margin: auto; border:none;">
+      <input (click)="Edit()" class='btn bg-yellow color-white big-font m-top-butn-10' type='button'
+        value="{{'Edit_Profile' | translate}}" />
+    </div>
+  </div>
+</ion-content>

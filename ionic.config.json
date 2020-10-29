@@ -1,0 +1,7 @@
+{
+  "name": "pickmeupDeriver",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,228 @@
+<ion-header>
+  <ion-toolbar style="--background : #38393d ">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: #f2c21e;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: #f2c21e;text-align: center;font-size: 18px;">{{'Trip_Details' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background :#38393d; ">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="{{'Refreshing Data ...'|translate}}">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class='h-100-p  '>
+    <div id='det-box1' *ngFor="let trip of TripDetails">
+      <ion-row class="row myRow">
+        <ion-col class="col col-50 col-center">
+          <p class='color-white'> {{'PICKUP_POINT' | translate}}</p>
+          <div class=" color-gery">{{trip.source}}</div>
+        </ion-col>
+        <ion-col class="col col-50 col-center">
+          <div class="m-top-30 color-gery" style="margin: 18px;">{{trip.trip_date |date: 'dd/MM/yyyy'}} /
+            {{trip.trip_date |date: 'HH:mm'}}</div>
+        </ion-col>
+      </ion-row>
+      <div class='m-top-30 text-center'>
+        <div class='yellow-hr'></div>
+        <span class='mid-item bg-grey color-white' style="background: #38393d;">{{'TO' | translate}}</span>
+      </div>
+      <ion-row class="row myRow">
+        <ion-col class="col  col-center">
+          <p class='color-white'>{{'DROP_POINT' | translate}}</p>
+          <div class=" color-gery">{{trip.destanation}}</div>
+        </ion-col>
+        <ion-col class="col   col-center">
+          <div class="m-top-30 color-gery" style="margin: 18px;"></div>
+        </ion-col>
+      </ion-row>
+      <div class='m-top-30 text-center'>
+        <div class='yellow-hr'></div>
+        <span class='mid-item bg-grey color-white'
+          style="background: #38393d; width: 120px;">{{'Gender'| translate}}</span>
+      </div>
+      <ion-row class="row myRow">
+        <ion-col class="col  col-center">
+          <p class='color-white'>{{'Gender' | translate}}</p>
+          <div class=" color-gery" *ngIf="trip.gender==1">{{'Male' | translate}}</div>
+          <div class=" color-gery" *ngIf="trip.gender==2">{{'Female' | translate}}</div>
+          <div class=" color-gery" *ngIf="trip.gender==3">{{'Mix' | translate}}</div>
+
+        </ion-col>
+        <ion-col class="col   col-center">
+          <div class="m-top-30 color-gery" style="margin: 18px;"></div>
+        </ion-col>
+      </ion-row>
+      <div class='m-top-30 text-center'>
+        <div class='yellow-hr'></div>
+        <span class='mid-item bg-grey color-white'
+          style="background: #38393d; width: 120px;">{{'Car Details'| translate}}</span>
+      </div>
+      <ion-row class="row myRow">
+        <ion-col class="col  col-center">
+          <p class='color-white'>{{'car_model' | translate}}</p>
+          <div class=" color-gery">{{trip.car_model}}</div>
+          <p class='color-white'>{{'car_color'| translate}}</p>
+          <div class=" color-gery">{{trip.car_color}}</div>
+          <p class='color-white'>{{'car_number' | translate}}</p>
+          <div class=" color-gery">{{trip.car_number}}</div>
+      
+
+        </ion-col>
+    </ion-row>
+     
+     <div class='m-top-30 text-center'>
+      <div class='yellow-hr'></div>
+      <span class='mid-item bg-grey color-white'
+        style="background: #38393d; width: 120px;">{{'Terms' | translate}}</span>
+    </div>
+    <ion-row class="row myRow">
+      <ion-col class="col  col-center">
+        
+        <div class=" color-gery" >{{trip.terms}}</div>
+       
+
+      </ion-col>
+      <ion-col class="col   col-center">
+        <div class="m-top-30 color-gery" style="margin: 18px;"></div>
+      </ion-col>
+    </ion-row>
+  
+      <div class='m-top-30 text-center'>
+        <div class='yellow-hr'></div>
+        <span class='mid-item bg-grey color-white'
+          style="background: #38393d;width: 120px;">{{'More_Details' | translate}}</span>
+      </div>
+      <ion-row class="row myRow">
+        <ion-col class="col  col-center">
+          <p class='color-white'>{{'Sets' | translate}}</p>
+          <div class=" color-gery">{{trip.number_of_set}}</div>
+        </ion-col>
+        <ion-col class="col   col-center">
+          <p class='color-white'>{{'Price' | translate}}</p>
+          <div class="m-top-30 color-gery" style="margin: 0px;">{{trip.price}} {{'JD' | translate}}</div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row myRow">
+        <ion-col class="col   col-center">
+          <p class='color-white'>{{'Remaining_Sets' | translate}}</p>
+          <div class="m-top-30 color-gery" style="margin: 0px;">{{trip.remain}}</div>
+        </ion-col>
+        <ion-col class="col   col-center">
+          <p class='color-white'>{{'Status' | translate}}</p>
+          <div class="m-top-30 color-gery" style="margin: 0px;" *ngIf="trip.status == 1">{{'Pending' | translate}}</div>
+          <div class="m-top-30 color-gery" style="margin: 0px;" *ngIf="trip.status == 2">{{'On_Process' | translate}}
+          </div>
+          <div class="m-top-30 color-gery" style="margin: 0px;" *ngIf="trip.status == 3">{{'Completed' | translate}}
+          </div>
+          <div class="m-top-30 color-gery" style="margin: 0px;" *ngIf="trip.status == 4">{{'Canceled' | translate}}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row myRow">
+        <ion-col class="col   col-center">
+          <p class='color-white'>{{'Phone' | translate}}</p>
+          <div class="m-top-30 color-gery" style="margin: 0px;">{{trip.phone}}</div>
+        </ion-col>
+      </ion-row>
+      <div class='m-top-30 text-center' *ngIf="setDetails.length > 0">
+        <div class='yellow-hr'></div>
+        <span class='mid-item bg-grey color-white'
+          style="background: #38393d;width: 120px;">{{'Set_Details' | translate}}</span>
+      </div>
+      <div *ngFor="let set of setDetails" style="border-bottom: 1px solid white;margin-bottom: 15px;">
+        <ion-row>
+          <ion-item style="width: 100%;--background: #717171; border-bottom: 3px solid #f2c21e;">
+            <ion-avatar slot="start" style="height: 60px;width: 60px;">
+              <img *ngIf="set.photo != null" src="{{set.photo}}" style="border-radius: 50%;height: 60px;width: 60px;"
+                style="opacity: 0.8;">
+              <img *ngIf="set.photo == null" src="assets/img/noImage.jpg"
+                style="border-radius: 50%;height: 60px;width: 60px;" style="opacity: 0.8;">
+            </ion-avatar>
+           
+
+            <!-- <div style="color: white;margin: 5px;width: 100%;position: absolute;top: 10%;"><span
+                style="color:#f2c21e;">{{'Student' | translate}} :</span>
+              {{set.name}}</div>
+            <br>
+            <div style="color: white;margin: 5px;width: 100%;position: absolute;top: 50%;"><span
+                style="color:#f2c21e;">{{'Phone' | translate}} :</span>
+              {{set.phone}}</div> -->
+          </ion-item>
+        </ion-row>
+        <ion-row class="row myRow">
+          <ion-col class="col  col-center">
+            <p class='color-white'>{{'Name' |translate}}</p>
+            <div class=" color-gery">{{set.name}}</div>
+          </ion-col>
+          <ion-col class="col   col-center">
+            <p class='color-white'>{{'Status' | translate}}</p>
+            <div class="m-top-30 color-gery" style="margin: 0px;" *ngIf="set.status == 1">{{'Accepted1' | translate}}
+            </div>
+            <div class="m-top-30 color-gery" style="margin: 0px;" *ngIf="set.status == 4">{{'Canceled' | translate}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row myRow">
+         <!-- <ion-col class="col  col-center">
+            <p class='color-white'>{{'Review' | translate}}</p>
+            <div class="m-top-30 color-gery" style="margin: 0px;">{{set.review}}</div>
+          </ion-col>-->
+          <ion-col class="col   col-center">
+            <p class='color-white'>{{'Joining_Date' | translate}}</p>
+            <div class="m-top-30 color-gery" style="margin: 0px;">{{set.join_date}}</div>
+          </ion-col>
+
+        </ion-row>
+        <!-- <ion-row class="row myRow">
+         <ion-col class="col  col-center">
+            <p class='color-white'>{{'Rate' | translate}}</p>
+            <rating [(ngModel)]="set.rate" readonly="true" size="default">
+            </rating>
+          </ion-col>
+        </ion-row> -->
+      </div>
+      <p class='text-center color-yellow bg-light p-head no-margin' *ngIf="roledIn && trip.status != 1 && trip.status != 4 ">{{'Rates' | translate}}
+      </p>
+      <rating [(ngModel)]="studentrate" readonly="false" size="default" (ngModelChange)="onRateChange($event)"
+        *ngIf="roledIn && trip.status != 1 && trip.status != 4 && (studentrate==null || studentrate==0) "></rating>
+      <rating [(ngModel)]="studentrate" readonly="true" size="default" (ngModelChange)="onRateChange($event)"
+        *ngIf="roledIn && trip.status != 1 && trip.status != 4 && studentrate!=null && studentrate!=0 ">
+      </rating>
+      <br>
+      <p class='color-white' *ngIf="hideReview">
+        {{'Review' | translate}}</p>
+      <br>
+      <ion-textarea *ngIf="hideReview" [(ngModel)]="review"
+        class="color-white" rows="6" cols="20" placeholder="Enter any review here..."></ion-textarea>
+      <ion-button expand="block" *ngIf="hideReview"
+        (click)="SaveRateReview()" color="danger">
+        Update</ion-button>
+
+
+      <ion-button expand="block" *ngIf="roledIn && trip.status != 2 && trip.status != 3 && trip.status != 4"
+        (click)="CancelTrip()" color="danger">
+        {{'Cancel_Trip' | translate}}</ion-button>
+      <br>
+      <ion-button expand="block"
+        *ngIf="!roledIn && trip.status != 2 && trip.status != 3 && trip.status != 4 && trip.remain > 0" (click)="Join()"
+        color="primary">
+        {{'Join' | translate}}</ion-button>
+        <div class='m-top-30 text-center' *ngIf="trip.status != 2 && trip.status != 3 && trip.status != 4 && trip.remain > 0">
+          <div class='yellow-hr'></div>
+          <span class='mid-item bg-grey color-white'
+            style="background: #38393d;width: 120px;">{{'Invite Friend' | translate}}</span>
+        </div>
+      <ion-input class="aux-input" type="number" style="color:white; border:solid white;
+      margin-bottom: 11px;" *ngIf="trip.status != 2 && trip.status != 3 && trip.status != 4 && trip.remain > 0"
+        [(ngModel)]="phone" name='phone' placeholder="{{'Friend Phone' | translate}}" ></ion-input>
+      <ion-button expand="block" *ngIf="trip.status != 2 && trip.status != 3 && trip.status != 4 && trip.remain > 0"
+        (click)="invitetrip()" color="primary">
+        {{'Invite Friend' | translate}}</ion-button>
+
+
+    </div>
+  </div>
+</ion-content>

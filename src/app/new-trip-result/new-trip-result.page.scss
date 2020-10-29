@@ -1,0 +1,31 @@
+// ion-segment-button {
+//   max-height: 10px;
+//   margin: 0px;
+//   padding: 0px;
+//   font-size: 11px;
+//   color: #f2c21e;
+// }
+
+ion-header {
+    .segment {
+      width: 100%;
+      background: #38393d;
+      height: 30px;
+      ion-label {
+        color: #f2c21e !important;
+      }
+      ion-segment-button {
+        height: 25px;
+        min-height: 15px;
+        width: 35px;
+        min-width: 19px;
+        font-size: 12px;
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --margin-end: 0px;
+        --margin-start: 0px;
+        --indicator-color-checked: #f2c21e;
+      }
+    }
+  }
+  
