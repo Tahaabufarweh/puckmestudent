@@ -1,36 +1,12 @@
 {
-    "declarations": {
-        "use_frameworks!": {
-            "declaration": "use_frameworks!",
-            "count": 2
-        }
-    },
+    "declarations": {},
     "sources": {
-        "https://cdn.cocoapods.org/": {
-            "source": "https://cdn.cocoapods.org/",
-            "count": 2
-        },
         "https://github.com/CocoaPods/Specs.git": {
             "source": "https://github.com/CocoaPods/Specs.git",
             "count": 1
         }
     },
     "libraries": {
-        "FBSDKCoreKit": {
-            "name": "FBSDKCoreKit",
-            "spec": "5.15.0",
-            "count": 1
-        },
-        "FBSDKLoginKit": {
-            "name": "FBSDKLoginKit",
-            "spec": "5.15.0",
-            "count": 1
-        },
-        "FBSDKShareKit": {
-            "name": "FBSDKShareKit",
-            "spec": "5.15.0",
-            "count": 1
-        },
         "Firebase/Analytics": {
             "name": "Firebase/Analytics",
             "spec": "~> 6.3.0",
@@ -39,16 +15,6 @@
         "Firebase/Messaging": {
             "name": "Firebase/Messaging",
             "spec": "~> 6.3.0",
-            "count": 1
-        },
-        "GoogleSignIn": {
-            "name": "GoogleSignIn",
-            "spec": "~> 5.0.2",
-            "count": 1
-        },
-        "GoogleUtilities": {
-            "name": "GoogleUtilities",
-            "spec": "~> 6.5.1",
             "count": 1
         }
     }

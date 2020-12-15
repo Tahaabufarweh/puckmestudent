@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { DataService, AlertService, SettingsService } from "../service";
 import { ModalController, MenuController } from "@ionic/angular";
 import { Router } from "@angular/router";
-import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook/ngx";
 
 @Component({
   selector: "app-login",
@@ -17,7 +16,6 @@ export class LoginPage implements OnInit {
   constructor(
     public dataSrv: DataService,
     public alertSrv: AlertService,
-    private fb: Facebook,
     public stngs: SettingsService,
     public menu: MenuController,
     public modal: ModalController,

@@ -129,8 +129,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _components_map_search_map_search_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/map-search/map-search.component */ "./src/app/components/map-search/map-search.component.ts");
-/* harmony import */ var _service_admob_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../service/admob.service */ "./src/app/service/admob.service.ts");
-
 
 
 
@@ -142,7 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let NewTripPage = class NewTripPage {
-    constructor(datePipe, modalController, formBuilder, stngs, router, dataSrv, alertSrv, modal, geolocation, nativeGeocoder, adMobService) {
+    constructor(datePipe, modalController, formBuilder, stngs, router, dataSrv, alertSrv, modal, geolocation, nativeGeocoder) {
         this.datePipe = datePipe;
         this.modalController = modalController;
         this.formBuilder = formBuilder;
@@ -153,7 +151,6 @@ let NewTripPage = class NewTripPage {
         this.modal = modal;
         this.geolocation = geolocation;
         this.nativeGeocoder = nativeGeocoder;
-        this.adMobService = adMobService;
         this.Locations = [];
         this.address = "";
         this.user = JSON.parse(localStorage.getItem("User"));
@@ -171,7 +168,6 @@ let NewTripPage = class NewTripPage {
         this.buildTripForm();
     }
     ionViewWillEnter() {
-        this.adMobService.ShowBanner();
     }
     getLocations() {
         this.alertSrv.show();
@@ -499,10 +495,10 @@ let NewTripPage = class NewTripPage {
             })
                 .catch((error) => console.log(error));
         });
-        this.adMobService.hideBanner();
-        setTimeout(() => {
-            this.adMobService.ShowInterstitial();
-        }, 1500);
+        // this.adMobService.hideBanner();
+        // setTimeout(() => {
+        //   this.adMobService.ShowInterstitial();
+        // }, 1500);
     }
 };
 NewTripPage.ctorParameters = () => [
@@ -515,8 +511,7 @@ NewTripPage.ctorParameters = () => [
     { type: _service__WEBPACK_IMPORTED_MODULE_3__["AlertService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"] },
     { type: _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__["Geolocation"] },
-    { type: _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_5__["NativeGeocoder"] },
-    { type: _service_admob_service__WEBPACK_IMPORTED_MODULE_10__["AdmobService"] }
+    { type: _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_5__["NativeGeocoder"] }
 ];
 NewTripPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -525,94 +520,8 @@ NewTripPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./new-trip.page.scss */ "./src/app/new-trip/new-trip.page.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_8__["DatePipe"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _service__WEBPACK_IMPORTED_MODULE_3__["SettingsService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], _service__WEBPACK_IMPORTED_MODULE_3__["DataService"], _service__WEBPACK_IMPORTED_MODULE_3__["AlertService"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__["Geolocation"], _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_5__["NativeGeocoder"],
-        _service_admob_service__WEBPACK_IMPORTED_MODULE_10__["AdmobService"]])
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ModalController"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__["Geolocation"], _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_5__["NativeGeocoder"]])
 ], NewTripPage);
-
-
-
-/***/ }),
-
-/***/ "./src/app/service/admob.service.ts":
-/*!******************************************!*\
-  !*** ./src/app/service/admob.service.ts ***!
-  \******************************************/
-/*! exports provided: AdmobService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmobService", function() { return AdmobService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
-/* harmony import */ var _ionic_native_admob_free_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/admob-free/ngx */ "./node_modules/@ionic-native/admob-free/ngx/index.js");
-
-
-//IMPORT PLATFORM SO WE CAN START ADMOB AS SOON AS IT'S READY.
-
-//IMPORT WHAT WE NEED FROM ADMOBFREE PLUGIN.
-
-let AdmobService = class AdmobService {
-    constructor(platform, admobFree) {
-        this.platform = platform;
-        this.admobFree = admobFree;
-        //BANNER CONFIG
-        this.bannerConfig = {
-            size: 'LARGE_BANNER',
-            autoShow: true,
-            // id: "ca-app-pub-3940256099942544/6300978111"
-            id: "ca-app-pub-6505060464041221/5457187768"
-        };
-        //INTERSTITIAL CONFIG
-        this.interstitialConfig = {
-            autoShow: false,
-            // id: "ca-app-pub-3940256099942544/1033173712"
-            id: "ca-app-pub-6505060464041221/4295331095"
-        };
-        //LOAD ADS AT PLATFORM READY PROMISE.
-        platform.ready().then(() => {
-            //BANNER
-            this.admobFree.banner.config(this.bannerConfig);
-            //INTERSTITIAL
-            this.admobFree.interstitial.config(this.interstitialConfig);
-            this.admobFree.interstitial.prepare().then(() => {
-                console.log('INTERSTIAL LOADED');
-            }).catch(e => console.log('PROBLEM LOADING INTERSTITIAL: ', e));
-        });
-    }
-    ShowBanner() {
-        //CHECK AND SHOW BANNER
-        this.admobFree.banner.prepare().then(() => {
-            console.log('BANNER LOADED');
-        }).catch(e => console.log('PROBLEM LOADING BANNER: ', e));
-    }
-    ShowInterstitial() {
-        //CHECK AND SHOW INTERSTITIAL
-        this.admobFree.interstitial.isReady().then(() => {
-            //AT .ISREADY SHOW 
-            this.admobFree.interstitial.show().then(() => {
-                console.log('INTERSTITIAL LOADED');
-            })
-                .catch(e => console.log('PROBLEM LOADING REWARD VIDEO: ', e));
-        })
-            .catch(e => console.log('PROBLEM LOADING REWARD VIDEO: ', e));
-    }
-    hideBanner() {
-        this.admobFree.banner.hide();
-    }
-};
-AdmobService.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
-    { type: _ionic_native_admob_free_ngx__WEBPACK_IMPORTED_MODULE_3__["AdMobFree"] }
-];
-AdmobService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
-        _ionic_native_admob_free_ngx__WEBPACK_IMPORTED_MODULE_3__["AdMobFree"]])
-], AdmobService);
 
 
 

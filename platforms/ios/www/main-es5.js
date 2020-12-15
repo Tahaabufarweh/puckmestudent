@@ -1525,48 +1525,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
-    /*! @ionic-native/facebook/ngx */
-    "./node_modules/@ionic-native/facebook/ngx/index.js");
-    /* harmony import */
-
-
-    var _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
-    /*! @ionic-native/google-plus/ngx */
-    "./node_modules/@ionic-native/google-plus/ngx/index.js");
-    /* harmony import */
-
-
-    var _ionic_native_admob_free_ngx__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
-    /*! @ionic-native/admob-free/ngx */
-    "./node_modules/@ionic-native/admob-free/ngx/index.js");
-    /* harmony import */
-
-
-    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
     /*! @ngx-translate/core */
     "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
     /* harmony import */
 
 
-    var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
+    var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
     /*! @ngx-translate/http-loader */
     "./node_modules/@ngx-translate/http-loader/fesm2015/ngx-translate-http-loader.js");
     /* harmony import */
 
 
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
+    var _angular_common__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/fesm2015/common.js");
 
     function HttpLoaderFactory(httpClient) {
-      return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_26__["TranslateHttpLoader"](httpClient, './assets/i18n/', '.json');
+      return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_23__["TranslateHttpLoader"](httpClient, './assets/i18n/', '.json');
     }
 
     var AppModule = function AppModule() {
@@ -1576,15 +1558,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]],
       entryComponents: [_login_login_page__WEBPACK_IMPORTED_MODULE_12__["LoginPage"], _signup_signup_page__WEBPACK_IMPORTED_MODULE_15__["SignupPage"]],
-      imports: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_25__["TranslateModule"].forRoot({
+      imports: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_22__["TranslateModule"].forRoot({
         loader: {
-          provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_25__["TranslateLoader"],
+          provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_22__["TranslateLoader"],
           useFactory: HttpLoaderFactory,
-          deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_27__["HttpClient"]]
+          deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_24__["HttpClient"]]
         }
-      }), _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _components_components_module__WEBPACK_IMPORTED_MODULE_9__["ComponentsModule"], _login_login_module__WEBPACK_IMPORTED_MODULE_13__["LoginPageModule"], _signup_signup_module__WEBPACK_IMPORTED_MODULE_14__["SignupPageModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_27__["HttpClientModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]],
-      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_10__["Geolocation"], _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_11__["NativeGeocoder"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_16__["FCM"], _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_17__["HTTP"], _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_21__["Camera"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__["File"], _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_19__["FilePath"], _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_22__["Facebook"], _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_20__["FileTransfer"], _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_23__["GooglePlus"], _angular_common__WEBPACK_IMPORTED_MODULE_28__["DatePipe"], // AdMobPro,
-      _ionic_native_admob_free_ngx__WEBPACK_IMPORTED_MODULE_24__["AdMobFree"], {
+      }), _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _components_components_module__WEBPACK_IMPORTED_MODULE_9__["ComponentsModule"], _login_login_module__WEBPACK_IMPORTED_MODULE_13__["LoginPageModule"], _signup_signup_module__WEBPACK_IMPORTED_MODULE_14__["SignupPageModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_24__["HttpClientModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]],
+      providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_10__["Geolocation"], _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_11__["NativeGeocoder"], _ionic_native_fcm_ngx__WEBPACK_IMPORTED_MODULE_16__["FCM"], _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_17__["HTTP"], _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_21__["Camera"], _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_18__["File"], _ionic_native_file_path_ngx__WEBPACK_IMPORTED_MODULE_19__["FilePath"], _ionic_native_file_transfer_ngx__WEBPACK_IMPORTED_MODULE_20__["FileTransfer"], _angular_common__WEBPACK_IMPORTED_MODULE_25__["DatePipe"], // AdMobPro,
+      {
         provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
         useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
       }],
@@ -2388,20 +2370,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
-    /* harmony import */
-
-
-    var _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @ionic-native/facebook/ngx */
-    "./node_modules/@ionic-native/facebook/ngx/index.js");
 
     var LoginPage = /*#__PURE__*/function () {
-      function LoginPage(dataSrv, alertSrv, fb, stngs, menu, modal, router) {
+      function LoginPage(dataSrv, alertSrv, stngs, menu, modal, router) {
         _classCallCheck(this, LoginPage);
 
         this.dataSrv = dataSrv;
         this.alertSrv = alertSrv;
-        this.fb = fb;
         this.stngs = stngs;
         this.menu = menu;
         this.modal = modal;
@@ -2505,8 +2480,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _service__WEBPACK_IMPORTED_MODULE_2__["AlertService"]
       }, {
-        type: _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_5__["Facebook"]
-      }, {
         type: _service__WEBPACK_IMPORTED_MODULE_2__["SettingsService"]
       }, {
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"]
@@ -2525,7 +2498,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./login.page.scss */
       "./src/app/login/login.page.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _service__WEBPACK_IMPORTED_MODULE_2__["AlertService"], _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_5__["Facebook"], _service__WEBPACK_IMPORTED_MODULE_2__["SettingsService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])], LoginPage);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _service__WEBPACK_IMPORTED_MODULE_2__["AlertService"], _service__WEBPACK_IMPORTED_MODULE_2__["SettingsService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])], LoginPage);
     /***/
   },
 

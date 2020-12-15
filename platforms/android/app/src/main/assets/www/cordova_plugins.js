@@ -1,27 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "cordova-promise-polyfill.Promise",
-      "file": "plugins/cordova-promise-polyfill/www/Promise.js",
-      "pluginId": "cordova-promise-polyfill",
-      "runs": true
-    },
-    {
-      "id": "cordova-promise-polyfill.promise.min",
-      "file": "plugins/cordova-promise-polyfill/www/promise.min.js",
-      "pluginId": "cordova-promise-polyfill"
-    },
-    {
-      "id": "cordova-plugin-admob-free.AdMob",
-      "file": "plugins/cordova-plugin-admob-free/www/admob.js",
-      "pluginId": "cordova-plugin-admob-free",
-      "clobbers": [
-        "admob",
-        "AdMob",
-        "plugins.AdMob"
-      ]
-    },
-    {
       "id": "cordova-plugin-file.DirectoryEntry",
       "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
       "pluginId": "cordova-plugin-file",
@@ -354,14 +333,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cordova-plugin-googleplus.GooglePlus",
-      "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
-      "pluginId": "cordova-plugin-googleplus",
-      "clobbers": [
-        "window.plugins.googleplus"
-      ]
-    },
-    {
       "id": "cordova-plugin-ionic-keyboard.keyboard",
       "file": "plugins/cordova-plugin-ionic-keyboard/www/android/keyboard.js",
       "pluginId": "cordova-plugin-ionic-keyboard",
@@ -400,20 +371,10 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.StatusBar"
       ]
-    },
-    {
-      "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
-      "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
-      "pluginId": "cordova-plugin-facebook4",
-      "clobbers": [
-        "facebookConnectPlugin"
-      ]
     }
   ];
   module.exports.metadata = {
-    "cordova-admob-sdk": "0.24.1",
-    "cordova-promise-polyfill": "0.0.2",
-    "cordova-plugin-admob-free": "0.27.0",
+    "cordova-plugin-add-swift-support": "2.0.2",
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-advanced-http": "2.4.1",
     "cordova-plugin-camera": "4.1.0",
@@ -422,13 +383,11 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-file-transfer": "1.7.1",
     "cordova-plugin-filepath": "1.5.7",
     "cordova-plugin-geolocation": "4.0.2",
-    "cordova-plugin-googleplus": "8.4.0",
     "cordova-plugin-ionic-keyboard": "2.2.0",
-    "cordova-plugin-ionic-webview": "4.1.3",
+    "cordova-plugin-ionic-webview": "5.0.0",
     "cordova-plugin-nativegeocoder": "3.2.2",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
-    "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-facebook4": "6.4.0"
+    "cordova-plugin-whitelist": "1.3.3"
   };
 });

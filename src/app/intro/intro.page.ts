@@ -2,8 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ModalController, MenuController } from "@ionic/angular";
 import { LoginPage } from "../login/login.page";
 import { SignupPage } from "../signup/signup.page";
-import { Facebook, FacebookLoginResponse } from "@ionic-native/facebook/ngx";
-import { GooglePlus } from "@ionic-native/google-plus/ngx";
 import { AlertService, DataService } from "../service";
 import { Router } from "@angular/router";
 
@@ -18,8 +16,6 @@ export class IntroPage implements OnInit {
   constructor(
     public modalController: ModalController,
     public router: Router,
-    private fb: Facebook,
-    public googlePlus: GooglePlus,
     public menu: MenuController,
     public alertSrv: AlertService,
     public dataSrv: DataService
@@ -55,79 +51,79 @@ export class IntroPage implements OnInit {
     return await modal.present();
   }
 
-  facebookLogin() {
-    this.fb
-      .getLoginStatus()
-      .then((res: FacebookLoginResponse) => {
-        if (res.status == "connected") {
-          console.log("user connected already" + res.authResponse.accessToken);
-          this.fb
-            .api(
-              `${res.authResponse.userID}?fields=id,name,email,first_name,last_name,gender,public_key`,
-              []
-            )
-            .then((profile) => {
-              this.userData = {
-                id: profile["id"],
-                name: profile["name"],
-                email: profile["email"],
-                first_name: profile["first_name"],
-                last_name: profile["last_name"],
-                gender: profile["gender"],
-                public_key: profile["public_key"],
-                access_token: res.authResponse.accessToken,
-              };
-              console.log(this.userData);
-              this.createAccount(this.userData);
-            });
-        } else {
-          console.log("USer Not login ");
-          this.fb
-            .login(["public_profile", "email"])
-            .then((res: FacebookLoginResponse) => {
-              console.log("Logged into Facebook!", JSON.stringify(res));
-              this.fb
-                .api(
-                  `${res.authResponse.userID}?fields=id,name,email,first_name,last_name,gender,public_key`,
-                  []
-                )
-                .then((profile) => {
-                  this.userData = {
-                    id: profile["id"],
-                    name: profile["name"],
-                    email: profile["email"],
-                    first_name: profile["first_name"],
-                    last_name: profile["last_name"],
-                    gender: profile["gender"],
-                    public_key: profile["public_key"],
-                    access_token: res.authResponse.accessToken,
-                  };
-                  this.createAccount(this.userData);
-                  console.log(this.userData);
-                });
-            })
-            .catch((e) => {
-              console.log("Error logging With Facebook");
-            });
-        }
-      })
-      .catch((e) => {
-        console.log("Error logging With Facebook");
-      });
-  }
+  // facebookLogin() {
+  //   this.fb
+  //     .getLoginStatus()
+  //     .then((res: FacebookLoginResponse) => {
+  //       if (res.status == "connected") {
+  //         console.log("user connected already" + res.authResponse.accessToken);
+  //         this.fb
+  //           .api(
+  //             `${res.authResponse.userID}?fields=id,name,email,first_name,last_name,gender,public_key`,
+  //             []
+  //           )
+  //           .then((profile) => {
+  //             this.userData = {
+  //               id: profile["id"],
+  //               name: profile["name"],
+  //               email: profile["email"],
+  //               first_name: profile["first_name"],
+  //               last_name: profile["last_name"],
+  //               gender: profile["gender"],
+  //               public_key: profile["public_key"],
+  //               access_token: res.authResponse.accessToken,
+  //             };
+  //             console.log(this.userData);
+  //             this.createAccount(this.userData);
+  //           });
+  //       } else {
+  //         console.log("USer Not login ");
+  //         this.fb
+  //           .login(["public_profile", "email"])
+  //           .then((res: FacebookLoginResponse) => {
+  //             console.log("Logged into Facebook!", JSON.stringify(res));
+  //             this.fb
+  //               .api(
+  //                 `${res.authResponse.userID}?fields=id,name,email,first_name,last_name,gender,public_key`,
+  //                 []
+  //               )
+  //               .then((profile) => {
+  //                 this.userData = {
+  //                   id: profile["id"],
+  //                   name: profile["name"],
+  //                   email: profile["email"],
+  //                   first_name: profile["first_name"],
+  //                   last_name: profile["last_name"],
+  //                   gender: profile["gender"],
+  //                   public_key: profile["public_key"],
+  //                   access_token: res.authResponse.accessToken,
+  //                 };
+  //                 this.createAccount(this.userData);
+  //                 console.log(this.userData);
+  //               });
+  //           })
+  //           .catch((e) => {
+  //             console.log("Error logging With Facebook");
+  //           });
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       console.log("Error logging With Facebook");
+  //     });
+  // }
 
-  googleLogin() {
-    let options = {
-      scopes: "", // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
-      webClientId:
-        "373971382765-q67f9fn0polbl5t3l1t2afg6jn20slka.apps.googleusercontent.com", // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
-      offline: true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
-    };
-    this.googlePlus
-      .login({})
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err));
-  }
+  // googleLogin() {
+  //   let options = {
+  //     scopes: "", // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
+  //     webClientId:
+  //       "373971382765-q67f9fn0polbl5t3l1t2afg6jn20slka.apps.googleusercontent.com", // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
+  //     offline: true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+  //   };
+  //   this.googlePlus
+  //     .login({})
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.error(err));
+  // }
 
   createAccount(data) {
     //alert("Creating Account")

@@ -7,7 +7,6 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MapSearchComponent } from '../components/map-search/map-search.component';
-import { AdmobService } from '../service/admob.service';
 
 @Component({
   selector: 'app-new-trip',
@@ -24,8 +23,7 @@ export class NewTripPage implements OnInit {
   long: any;
   currentsegmant = 0;
   constructor(private datePipe: DatePipe, public modalController: ModalController, public formBuilder: FormBuilder, public stngs: SettingsService, public router: Router, public dataSrv: DataService, public alertSrv: AlertService,
-    public modal: ModalController, public geolocation: Geolocation, public nativeGeocoder: NativeGeocoder,
-    public adMobService: AdmobService) {
+    public modal: ModalController, public geolocation: Geolocation, public nativeGeocoder: NativeGeocoder) {
     this.fcm = this.dataSrv.subscribePush();
     console.log(this.fcm)
     this.getLocations();
@@ -39,7 +37,6 @@ export class NewTripPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.adMobService.ShowBanner();
   }
 
   getLocations() {
@@ -371,10 +368,10 @@ export class NewTripPage implements OnInit {
         .catch((error: any) => console.log(error));
     })
 
-    this.adMobService.hideBanner();
-    setTimeout(() => {
-      this.adMobService.ShowInterstitial();
-    }, 1500);
+    // this.adMobService.hideBanner();
+    // setTimeout(() => {
+    //   this.adMobService.ShowInterstitial();
+    // }, 1500);
   }
 
 

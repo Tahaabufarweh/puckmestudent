@@ -123,12 +123,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/fesm2015/ionic-angular.js");
 /* harmony import */ var _login_login_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../login/login.page */ "./src/app/login/login.page.ts");
 /* harmony import */ var _signup_signup_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../signup/signup.page */ "./src/app/signup/signup.page.ts");
-/* harmony import */ var _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/facebook/ngx */ "./node_modules/@ionic-native/facebook/ngx/index.js");
-/* harmony import */ var _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/google-plus/ngx */ "./node_modules/@ionic-native/google-plus/ngx/index.js");
-/* harmony import */ var _service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../service */ "./src/app/service/index.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-
-
+/* harmony import */ var _service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service */ "./src/app/service/index.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 
 
 
@@ -137,11 +133,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IntroPage = class IntroPage {
-    constructor(modalController, router, fb, googlePlus, menu, alertSrv, dataSrv) {
+    constructor(modalController, router, menu, alertSrv, dataSrv) {
         this.modalController = modalController;
         this.router = router;
-        this.fb = fb;
-        this.googlePlus = googlePlus;
         this.menu = menu;
         this.alertSrv = alertSrv;
         this.dataSrv = dataSrv;
@@ -176,72 +170,78 @@ let IntroPage = class IntroPage {
             return yield modal.present();
         });
     }
-    facebookLogin() {
-        this.fb
-            .getLoginStatus()
-            .then((res) => {
-            if (res.status == "connected") {
-                console.log("user connected already" + res.authResponse.accessToken);
-                this.fb
-                    .api(`${res.authResponse.userID}?fields=id,name,email,first_name,last_name,gender,public_key`, [])
-                    .then((profile) => {
-                    this.userData = {
-                        id: profile["id"],
-                        name: profile["name"],
-                        email: profile["email"],
-                        first_name: profile["first_name"],
-                        last_name: profile["last_name"],
-                        gender: profile["gender"],
-                        public_key: profile["public_key"],
-                        access_token: res.authResponse.accessToken,
-                    };
-                    console.log(this.userData);
-                    this.createAccount(this.userData);
-                });
-            }
-            else {
-                console.log("USer Not login ");
-                this.fb
-                    .login(["public_profile", "email"])
-                    .then((res) => {
-                    console.log("Logged into Facebook!", JSON.stringify(res));
-                    this.fb
-                        .api(`${res.authResponse.userID}?fields=id,name,email,first_name,last_name,gender,public_key`, [])
-                        .then((profile) => {
-                        this.userData = {
-                            id: profile["id"],
-                            name: profile["name"],
-                            email: profile["email"],
-                            first_name: profile["first_name"],
-                            last_name: profile["last_name"],
-                            gender: profile["gender"],
-                            public_key: profile["public_key"],
-                            access_token: res.authResponse.accessToken,
-                        };
-                        this.createAccount(this.userData);
-                        console.log(this.userData);
-                    });
-                })
-                    .catch((e) => {
-                    console.log("Error logging With Facebook");
-                });
-            }
-        })
-            .catch((e) => {
-            console.log("Error logging With Facebook");
-        });
-    }
-    googleLogin() {
-        let options = {
-            scopes: "",
-            webClientId: "373971382765-q67f9fn0polbl5t3l1t2afg6jn20slka.apps.googleusercontent.com",
-            offline: true,
-        };
-        this.googlePlus
-            .login({})
-            .then((res) => console.log(res))
-            .catch((err) => console.error(err));
-    }
+    // facebookLogin() {
+    //   this.fb
+    //     .getLoginStatus()
+    //     .then((res: FacebookLoginResponse) => {
+    //       if (res.status == "connected") {
+    //         console.log("user connected already" + res.authResponse.accessToken);
+    //         this.fb
+    //           .api(
+    //             `${res.authResponse.userID}?fields=id,name,email,first_name,last_name,gender,public_key`,
+    //             []
+    //           )
+    //           .then((profile) => {
+    //             this.userData = {
+    //               id: profile["id"],
+    //               name: profile["name"],
+    //               email: profile["email"],
+    //               first_name: profile["first_name"],
+    //               last_name: profile["last_name"],
+    //               gender: profile["gender"],
+    //               public_key: profile["public_key"],
+    //               access_token: res.authResponse.accessToken,
+    //             };
+    //             console.log(this.userData);
+    //             this.createAccount(this.userData);
+    //           });
+    //       } else {
+    //         console.log("USer Not login ");
+    //         this.fb
+    //           .login(["public_profile", "email"])
+    //           .then((res: FacebookLoginResponse) => {
+    //             console.log("Logged into Facebook!", JSON.stringify(res));
+    //             this.fb
+    //               .api(
+    //                 `${res.authResponse.userID}?fields=id,name,email,first_name,last_name,gender,public_key`,
+    //                 []
+    //               )
+    //               .then((profile) => {
+    //                 this.userData = {
+    //                   id: profile["id"],
+    //                   name: profile["name"],
+    //                   email: profile["email"],
+    //                   first_name: profile["first_name"],
+    //                   last_name: profile["last_name"],
+    //                   gender: profile["gender"],
+    //                   public_key: profile["public_key"],
+    //                   access_token: res.authResponse.accessToken,
+    //                 };
+    //                 this.createAccount(this.userData);
+    //                 console.log(this.userData);
+    //               });
+    //           })
+    //           .catch((e) => {
+    //             console.log("Error logging With Facebook");
+    //           });
+    //       }
+    //     })
+    //     .catch((e) => {
+    //       console.log("Error logging With Facebook");
+    //     });
+    // }
+    // googleLogin() {
+    //   let options = {
+    //     scopes: "", // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
+    //     webClientId:
+    //       "373971382765-q67f9fn0polbl5t3l1t2afg6jn20slka.apps.googleusercontent.com", // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
+    //     offline: true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+    //   };
+    //   this.googlePlus
+    //     .login({})
+    //     .then((res) => console.log(res))
+    //     .catch((err) => console.error(err));
+    // }
     createAccount(data) {
         //alert("Creating Account")
         this.alertSrv.show();
@@ -279,12 +279,10 @@ let IntroPage = class IntroPage {
 };
 IntroPage.ctorParameters = () => [
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
-    { type: _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_5__["Facebook"] },
-    { type: _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_6__["GooglePlus"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"] },
-    { type: _service__WEBPACK_IMPORTED_MODULE_7__["AlertService"] },
-    { type: _service__WEBPACK_IMPORTED_MODULE_7__["DataService"] }
+    { type: _service__WEBPACK_IMPORTED_MODULE_5__["AlertService"] },
+    { type: _service__WEBPACK_IMPORTED_MODULE_5__["DataService"] }
 ];
 IntroPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -293,12 +291,10 @@ IntroPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./intro.page.scss */ "./src/app/intro/intro.page.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
-        _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_5__["Facebook"],
-        _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_6__["GooglePlus"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
-        _service__WEBPACK_IMPORTED_MODULE_7__["AlertService"],
-        _service__WEBPACK_IMPORTED_MODULE_7__["DataService"]])
+        _service__WEBPACK_IMPORTED_MODULE_5__["AlertService"],
+        _service__WEBPACK_IMPORTED_MODULE_5__["DataService"]])
 ], IntroPage);
 
 

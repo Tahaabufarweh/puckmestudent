@@ -31,16 +31,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-ionic-webview": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-ionic-webview@^4.0.0"
-    },
-    "is_top_level": true,
-    "variables": {
-      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-    }
-  },
   "cordova-plugin-ionic-keyboard": {
     "source": {
       "type": "registry",
@@ -81,7 +71,13 @@
       "id": "cordova-plugin-fcm-with-dependecy-updated"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "FCM_CORE_VERSION": "16.0.9",
+      "FCM_VERSION": "18.0.0",
+      "GRADLE_TOOLS_VERSION": "3.5.0",
+      "GOOGLE_SERVICES_VERSION": "4.2.0",
+      "ANDROID_DEFAULT_NOTIFICATION_ICON": "@mipmap/ic_launcher"
+    }
   },
   "cordova-plugin-nativegeocoder": {
     "source": {
@@ -99,7 +95,9 @@
       "id": "cordova-plugin-camera@4.1.0"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+"
+    }
   },
   "cordova-plugin-file-transfer": {
     "source": {
@@ -117,16 +115,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-googleplus": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-googleplus"
-    },
-    "is_top_level": true,
-    "variables": {
-      "REVERSED_CLIENT_ID": "373971382765-q67f9fn0polbl5t3l1t2afg6jn20slka.apps.googleusercontent.com373971382765-q67f9fn0polbl5t3l1t2afg6jn20slka.apps.googleusercontent.com"
-    }
-  },
   "cordova-plugin-extension": {
     "source": {
       "type": "registry",
@@ -134,17 +122,6 @@
     },
     "is_top_level": false,
     "variables": {}
-  },
-  "cordova-plugin-admobpro": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-admobpro"
-    },
-    "is_top_level": true,
-    "variables": {
-      "PLAY_SERVICES_VERSION": "16.0.0",
-      "ADMOB_ANDROID_APP_ID": "ca-app-pub-6505060464041221~5648759455"
-    }
   },
   "cordova-promise-polyfill": {
     "source": {
@@ -154,45 +131,20 @@
     "is_top_level": false,
     "variables": {}
   },
-  "cordova-plugin-admob-free": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-admob-free@^0.27.0"
-    },
-    "is_top_level": true,
-    "variables": {
-      "ADMOB_APP_ID": "ca-app-pub-6505060464041221~5648759455"
-    }
-  },
-  "cordova-admob-sdk": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-admob-sdk@^0.24.1"
-    },
-    "is_top_level": true,
-    "variables": {
-      "PLAY_SERVICES_VERSION": "16.0.0"
-    }
-  },
-  "cordova-plugin-facebook4": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-facebook4"
-    },
-    "is_top_level": true,
-    "variables": {
-      "APP_ID": "334905437647745",
-      "APP_NAME": "Pickmestudent",
-      "FACEBOOK_HYBRID_APP_EVENTS": "true",
-      "FACEBOOK_ANDROID_SDK_VERSION": "5.13.0"
-    }
-  },
   "cordova-plugin-add-swift-support": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-add-swift-support@2.0.2"
     },
     "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-ionic-webview": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-ionic-webview@latest"
+    },
+    "is_top_level": true,
     "variables": {}
   }
 }

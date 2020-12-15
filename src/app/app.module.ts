@@ -21,10 +21,7 @@ import { File } from '@ionic-native/file/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
-import { Facebook } from '@ionic-native/facebook/ngx';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { AdMobPro } from '@ionic-native/admob-pro/ngx';
-import { AdMobFree } from '@ionic-native/admob-free/ngx';
+
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -64,12 +61,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     Camera,
     File,
     FilePath,
-    Facebook,
     FileTransfer,
-    GooglePlus,
     DatePipe,
     // AdMobPro,
-    AdMobFree,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
